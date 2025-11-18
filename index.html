@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie GO - Discover Local Restaurants</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel= "icon" type="images/png" href="assets/Logo1.png">
+</head>
+<body>
+    <div id="landing-page">
+        <div class="landing-container">
+            <div class="landing-content">
+                <div class="logo-container">
+                    <img src="assets/Logo1.png" alt="Restaurant Browser Logo" class="landing-logo">
+                </div>
+                <h1 class="landing-title">Foodie GO</h1>
+                <p class="landing-subtitle">Discover delicious Filipino cuisine here in Claveria</p>
+                <p class="landing-description">Explore local restaurants, browse menus, and find your next favorite meal. From sizzling sisig to specialty coffee, we've got you covered.</p>
+                <a href="Browse.html" class="landing-cta" id="enter-app-btn">
+                    <span>Explore Restaurants</span>
+                    <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 12h10M14 7l5 5-5 5"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="landing-features">
+                <div class="feature-card">
+                    <div class="feature-icon">🍽️</div>
+                    <h3>Local Cuisine</h3>
+                    <p>Authentic Filipino dishes from trusted local restaurants</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Easy Browsing</h3>
+                    <p>Simple interface to explore menus and find what you crave</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Favorites</h3>
+                    <p>Save your favorite restaurants for quick access</p>
+                </div>
+            </div>
+        </div>
+        <div class="landing-background">
+            <div class="floating-element element-1"></div>
+            <div class="floating-element element-2"></div>
+            <div class="floating-element element-3"></div>
+            <div class="floating-element element-4"></div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const landingPage = document.getElementById('landing-page');
+            landingPage.style.opacity = '0';
+            setTimeout(() => {
+                landingPage.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>

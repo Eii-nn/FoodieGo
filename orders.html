@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Orders - Foodie GO</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="images/png" href="assets/Logo1.png">
+</head>
+<body>
+    <div class="orders-container">
+        <header class="orders-header">
+            <a href="index.html" class="back-btn">← Back</a>
+            <h1>Your Orders</h1>
+        </header>
+
+        <div class="orders-content">
+            <div class="new-order-section">
+                <h2>Create New Order</h2>
+                <div class="restaurant-selector">
+                    <label for="restaurant-select">Select Restaurant:</label>
+                    <select id="restaurant-select">
+                        <option value="">Choose a restaurant...</option>
+                    </select>
+                </div>
+
+                <div id="menu-items" class="menu-items-grid"></div>
+
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div id="cart-items" class="cart-items"></div>
+                    <div class="order-total">
+                        <strong>Total: ₱<span id="total-price">0.00</span></strong>
+                    </div>
+                    <button id="place-order-btn" class="btn-primary" disabled>Place Order</button>
+                </div>
+            </div>
+
+            <div class="order-history-section">
+                <h2>Order History</h2>
+                <p class="orders-helper-text">Orders you place from any restaurant page will show up here. Data stays on this browser.</p>
+                <div id="orders-list" class="orders-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="orders.js"></script>
+</body>
+</html>

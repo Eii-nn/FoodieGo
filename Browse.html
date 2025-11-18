@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie GO - Local Restaurant Browser</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+    <link rel= "icon" type="images/png" href="assets/Logo1.png">
+    
+</head>
+<body>
+    <div id="app">
+        <!-- Home Page -->
+        <div id="home-page">
+            <nav class="sticky-nav">
+                <a href="#top" class="nav-logo">
+                    <img src="assets/Logo1.png" alt="Foodie GO" />
+                </a>
+                <div class="nav-links">
+                    <a href="#restaurant-listing" class="nav-link">Browse</a>
+                    <a href="#category-filters" class="nav-link">Filters</a>
+                    <a href="#testimonials" class="nav-link">Reviews</a>
+                </div>
+            </nav>
+            <header id="top">
+                <div class="header-nav">
+                    <a href="index.html" class="back-to-landing-btn" id="back-to-landing-btn" aria-label="Back to home">
+                        <span>← Back</span>
+                    </a>
+                </div>
+                <h1>🍽️ Foodie GO</h1>
+                <p class="subtitle">Discover delicious Filipino cuisine in your area</p>
+                <div class="search-container">
+                    <input type="search" id="search-input" placeholder="Search restaurants or dishes..." aria-label="Search restaurants">
+                </div>
+            </header>
+            
+            <main class="container">
+                <section id="category-filters">
+                    <button class="filter-btn active" data-category="all">All</button>
+                    <button class="filter-btn" data-category="favorites">⭐ Favorites</button>
+                </section>
+                
+                <section id="restaurant-listing">
+                    <div id="restaurant-grid" class="grid-container"></div>
+                    <p id="no-results-message" class="hidden">No restaurants found. Try a different search.</p>
+                </section>
+                
+                <section id="testimonials" class="testimonials-section">
+                    <h2>What locals say</h2>
+                    <div class="testimonials-grid">
+                        <blockquote class="testimonial">
+                            <p>"The waiting time is slow, but the food is decent. I've already celebrated my birthdays here twice.
+
+                                The establishment only needs better furniture made of tougher materials for safety, more manpower for faster sevice and cleaning of the nets around the place to make it neat.!"</p>
+                            <footer>— Jonah, Claveria</footer>
+                        </blockquote>
+                        <blockquote class="testimonial">
+                            <p>"This place is just outside a school campus so it may get a bit full. Luckily we were there on a not so busy day and time. We were able to get our coffees. They offer coffee and non-caffeine options and some nibbles. Ambiance-wise, its not intimidating at all. Very homey.."</p>
+                            <footer>— Mark, Student</footer>
+                        </blockquote>
+                        <blockquote class="testimonial">
+                            <p>"So easy to discover new places to eat."</p>
+                            <footer>— Aira, Foodie</footer>
+                        </blockquote>
+                    </div>
+                </section>
+            </main>
+        </div>
+        
+        <!-- Quick View Modal -->
+        <div id="quickview-overlay" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="quickview-title">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3 id="quickview-title">Preview</h3>
+                    <button class="close-modal" id="close-quickview" aria-label="Close">×</button>
+                </div>
+                <div class="modal-body" id="quickview-body"></div>
+            </div>
+        </div>
+        
+        <!-- Restaurant Detail Page -->
+        <div id="restaurant-page" class="hidden">
+            <header class="store-header">
+                <a href="#" class="back-link" id="back-link" aria-label="Back to all restaurants">← All restaurants</a>
+                <h1 id="restaurant-title"></h1>
+                <p class="subtitle" id="restaurant-description"></p>
+            </header>
+            
+            <main class="container">
+        <div class="store-details-grid">
+            <div class="product-catalog-panel">
+                <h2>🍴 Menu</h2>
+                <div id="product-filters"></div>
+                <div id="product-grid" class="product-grid"></div>
+            </div>
+            <div class="store-sidebar">
+                <div class="order-panel" id="order-panel">
+                    <div class="order-panel-header">
+                        <h2>🧾 Build Your Order</h2>
+                        <p id="order-panel-restaurant">Select a restaurant to begin</p>
+                    </div>
+                    <div class="order-empty-state" id="order-empty-state">
+                        <p>Tap any priced dish to add it to your cart.</p>
+                        <small>Your selections stay on this device only.</small>
+                    </div>
+                    <div class="order-cart-list" id="order-cart-list"></div>
+                    <div class="order-panel-total">
+                        <span>Total</span>
+                        <strong>₱<span id="order-panel-total">0.00</span></strong>
+                    </div>
+                    <div class="order-panel-actions">
+                        <button id="place-order-from-store" class="btn-primary" disabled>Place Order</button>
+                        <button id="clear-order-btn" class="btn-secondary" disabled>Clear</button>
+                        <a href="orders.html" class="btn-link">View order history →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="location-section">
+            <div class="location-panel">
+                <h2>📍 Location</h2>
+                <div id="restaurant-map" class="restaurant-map"></div>
+                <div id="restaurant-address" class="restaurant-address"></div>
+            </div>
+        </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Add smooth page load animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const app = document.getElementById('app');
+            app.style.opacity = '0';
+            setTimeout(() => {
+                app.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
